@@ -1,6 +1,4 @@
 # pomodoro-study-appweb
-#POMODORO APP-WEB
-
 
 #ABOUT THIS REPOSITORY
 
