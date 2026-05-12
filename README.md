@@ -1,5 +1,4 @@
 # pomodoro-study-appweb
 
-#ABOUT THIS REPOSITORY
-
-• By following my academic classes, this APP-WEB come to my mind while one  of my study routines.
+# ABOUT
+<p>The Pomodoro's study method it's one of the most famous study methods that exists nowadays. In it's core formula, the Pomodoro is a time-management tecniche </p>
