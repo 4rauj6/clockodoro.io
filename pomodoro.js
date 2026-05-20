@@ -10,15 +10,33 @@ const secondsDisplay = document.getElementById('seconds');
 const timerStatus = document.getElementById('timer-status');
 const userTimeInput = document.getElementById('user-time');
 const timerSetupDiv = document.getElementById('timer-setup');
-
 const btnStart = document.getElementById('btn-start');
 const btnPause = document.getElementById('btn-pause');
 const btnReset = document.getElementById('btn-reset');
 
+btnStart.addEventListener('click', () => {
+    if (isPaused) {
+        startCountdown(); 
+        timerStatus.innerText = currentMode.includes('foco') ? 'Foco total!' : 'Hora de relaxar';
+        toggleButtons(true);
+        isPaused = false;
+    } else {
+        initPomodoro();
+    }
+});
+
 function startApp() {
     const appSection = document.getElementById('pomodoro-app');
-    appSection.style.display = 'block';
-    appSection.scrollIntoView({ behavior: 'smooth' });
+    const otherPages = document.querySelectorAll('.homepage, .about, .know-more');
+
+
+    if (appSection.style.display === 'none' || appSection.style.display === '') {
+        appSection.style.display = 'block';
+        otherPages.forEach(page => page.style.display = 'none');
+    } else {
+        appSection.style.display = 'none';
+        otherPages.forEach(page => page.style.display = 'block');
+    }
 }
 
 function initPomodoro() {
@@ -26,6 +44,13 @@ function initPomodoro() {
         isPaused = false;
         startCountdown();
         toggleButtons(true);
+        return;
+    }
+
+    const getTaskString = document.getElementById('task-input').value.trim();
+
+    if(!getTaskString){
+        alert('Por favor preencha todos os campos');
         return;
     }
 
@@ -64,7 +89,6 @@ function startCountdown() {
             updateDisplay(totalSeconds);
             checkTimeTriggers();
         } else {
-            // Se o tempo zerou
             clearInterval(timerInterval);
             handleTimerEnd();
         }
@@ -115,7 +139,6 @@ function updateDisplay(secondsToRender) {
     const mins = Math.floor((secondsToRender % 3600) / 60);
     const secs = secondsToRender % 60;
 
-    // Se o usuário colocar horas, exibimos o formato adaptado, senão mantemos min:seg
     if (hrs > 0) {
         minutesDisplay.innerText = String(hrs * 60 + mins).padStart(2, '0');
     } else {

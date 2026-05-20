@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f1c0c0;
+    background-color: #e7e7e7;
 }
 
 header {
@@ -83,7 +83,7 @@ header {
     display: flex;
     justify-content: center;
     color: rgb(238, 22, 22);
-    line-height: 0.5;
+    line-height: 1;
 }
 
 
@@ -117,24 +117,24 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #dd1e1e;
+    background-color: #b11212;
     color: white;
     transition: 0.3s;
 }
 
 .homepage-button:hover {
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     color: white;
 }
 
 #button2 {
     background-color: rgba(255, 255, 255, 0);
     color: #be3939;
-    border: 2px solid #dd1e1e;
+    border: 2px solid #ff0000;
 }
 
 #button2:hover {
-    background-color: #f31111;
+    background-color: #ff0000;
     color: white;
 }
 
@@ -148,7 +148,7 @@ header {
 #know-about-pomodoro {
     margin-top: 400px;
     background-color: white;
-    border-radius: 40px 40px 0 0;
+    border-radius: 150px 150px 0 0;
     padding: 10px 30px 90px;
 }
 
@@ -164,6 +164,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 70px;
 }
 
 .pomodoro-description {
@@ -182,13 +183,109 @@ header {
 }
 
 .timer-img {
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: center;
+    background-color: rgb(235, 76, 76);
+    border-radius: 700px 10px 800px 700px;
+    padding: 10px;
 }
 
 .timer-img img {
-    width: 100%;
+    width: 80%;
     max-width: 500px;
     height: auto;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(235, 76, 76);
+    color: white;
+    padding: 90px 30px;
+}
+
+#about span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 10%;
+    font-size: 1em;
+}
+
+#about h1 {
+    font-family: 'Poppins';
+}
+
+.about-project {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 70%;
+    font-family: 'Nunito';
+}
+
+.pomodoro-app {
+    display: none; 
+    padding: 40px; 
+    text-align: center;
+    font-family: 'Cabin';
+}
+
+#timer-status h2 {
+    font-family: 'Cabin' !important;
+}
+
+.timer-display {
+    font-size: 4rem; font-family: 'Poppins', sans-serif; font-weight: 700; margin: 20px 0;
+}
+
+.timer-setup {
+    background-color: white;
+    padding: 30px;
+    width: 30%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.timer-setup label {
+    font-family: 'Nunito', sans-serif; margin-right: 10px;
+}
+
+.timer-setup input {
+    padding: 5px; font-family: 'Poppins';
+    border-radius: 5px;
+}
+
+.button-control-group {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+    gap: 30px;
+}
+
+.button-control-group button {
+    padding: 20px 30px;
+}
+
+#btn-reset {
+    display: none;
+    background-color: transparent; border: solid 2px red; color: red;
+}
+
+#btn-reset:hover{
+    background-color: red;
+    color: white;
 }
