@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 
-    <title>Tomatodoro</title>
+    <title>Pomodorito</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
 
     <section class="homepage" id="home-page">
         <div class="homepage-left-content">
-            <h1>Tomatodoro</h1>
+            <h1>Pomodoro Clocker</h1>
             <h3>Aprenda mais, perca menos tempo</h3>
             <p>Gerencie seu tempo com eficiência e produtividade. Com o Tomatodoro, estudar não precisa ser cansativo.
             </p>
@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section id="know-about-pomodoro">
+    <section id="know-about-pomodoro" class="know-more">
         <span class="section-sticker">Conhecendo melhor</span>
         <h1>O que é o método pomodoro?</h1>
 
@@ -96,40 +96,46 @@
             </p>
 
             <div class="timer-img">
-                <img src="assets-pomodoro/263631948_5aff05d7-3b3a-4dd5-92f9-75f018735acd.svg" alt="">
+                <img src="assets-pomodoro/17543960_2002.i515.001_modern_students_flat_icons-13.svg" alt="">
             </div>
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="about">
         <span class="section-sticker">Sobre o projeto</span>
         <h1>Conhecendo o projeto a fundo</h1>
 
         <p class="about-project">
-            Este projeto faz parte de uma coleção de AppWeb's desenvolvidos por <a href="https://github.com/4rauj6">João
-                Victor Araújo de Sousa</a>, com o objetivo de compor seu portifólio acadêmico e demonstrar suas
-            habilidades como Front-End Developer para possíveis contratantes.
+            Esta aplicação é uma prova de conceito criada por João Victor Araújo de Sousa. O seu intuído é apenas (e
+            únicamente) o aprendizado e o treinamento das habilidades como desenvolvedor Front-End de seu autor. Com o auxílio do Professor Eduardo do curso de Desenvolvimento de Sistemas do SENAI MA, este App-Web nãoo teria sido desenvolvido e aperfeiçoado. Seu intuíto foi pensado para ser uma aplição de fácil entendimento, manuntenção e funcionamento. 
         </p>
     </section>
 
- <section class="pomodoro-app" id="pomodoro-app" style="display: none; padding: 40px; text-align: center;">
+    <section class="pomodoro-app" id="pomodoro-app">
         <span class="section-sticker">Cronômetro</span>
-        <h2 id="timer-status">Pronto para começar?</h2>
-        
-      
-        <div class="timer-display" style="font-size: 4rem; font-family: 'Poppins', sans-serif; font-weight: 700; margin: 20px 0;">
-            <span id="minutes">00</span>:<span id="seconds">00</span>
-        </div>
-      
-        <div class="timer-setup" id="timer-setup">
-            <label for="user-time" style="font-family: 'Nunito', sans-serif; margin-right: 10px;">Definir tempo de foco:</label>
-            <input type="time" id="user-time" value="00:25" style="padding: 5px; font-family: 'Poppins', sans-serif;">
-        </div>
 
-        <div class="button-group" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
-            <button id="btn-start" onclick="initPomodoro()" class="homepage-button">Iniciar Foco <i class="fa fa-play"></i></button>
-            <button id="btn-pause" onclick="pauseTimer()" class="homepage-button" style="display: none;">Pausar <i class="fa fa-pause"></i></button>
-            <button id="btn-reset" onclick="resetTimer()" class="homepage-button" style="background-color: #555; display: none;">Resetar <i class="fa fa-refresh"></i></button>
+        <div class="timer-container">
+            <h2 id="timer-status" style="font-family: 'Poppins';">Pronto para começar?</h2>
+            
+        
+            <div class="timer-display">
+                <span id="minutes">00</span>:<span id="seconds">00</span>
+            </div>
+        
+            <div class="timer-setup" id="timer-setup">
+                <label for="user-time">Definir tempo de foco:</label>
+                <input type="time" id="user-time" value="00:00"><br><br>
+
+                <label for="task">Definir uma tarefa:</label>
+                <input type="text" id="task-input">    
+            </div>
+
+            <div class="button-control-group" style="margin-top: 20px;">
+                <button id="btn-start" class="homepage-button">Iniciar Foco <i class="fa fa-play"></i></button>
+                <button id="btn-pause" onclick="pauseTimer()" class="homepage-button" style="display: none;">Pausar <i class="fa fa-pause"></i></button>
+                <button id="btn-reset" onclick="resetTimer()" class="homepage-button">Resetar <i class="fa fa-refresh"></i></button>
+            </div>
+
         </div>
     </section>
 </body>
