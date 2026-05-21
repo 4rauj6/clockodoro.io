@@ -819,12 +819,10 @@ header {
 
   justify-content: center;
   align-items: center;
-    width: 20px;
-    padding: 10px;
+    min-width: 200px;
+    padding: 10px 20px;
 
 }
-
-
 
 #know-about-pomodoro {
 
