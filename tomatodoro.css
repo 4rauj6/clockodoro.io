@@ -802,11 +802,7 @@ header {
 
   }
 
-}
-
-
-
-.button-group {
+    .button-group {
 
   flex-direction: column;
   text-align: center;
@@ -845,5 +841,8 @@ header {
 .about-project {
 
   width: 100%;
+
+}
+
 
 }
