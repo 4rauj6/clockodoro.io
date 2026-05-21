@@ -809,8 +809,8 @@ header {
 .button-group {
 
   flex-direction: column;
-
   text-align: center;
+    width: 50%;
 
 }
 
@@ -819,7 +819,6 @@ header {
 .homepage-button {
 
   justify-content: center;
-
   align-items: center;
 
 }
