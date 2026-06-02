@@ -97,7 +97,7 @@ header {
     display: flex;
     text-align: center;
     color: rgb(238, 22, 22);
-    width: 200%;
+    width: 100%;
 }
 
 
@@ -460,7 +460,8 @@ header {
 
 }
 
-@media (max-width: 470px) {
+@media (max-width: 480px) {
+    /* Força o html e body a ignorarem qualquer transbordamento lateral */
     html, body {
         overflow-x: hidden;
         width: 100%;
@@ -577,7 +578,7 @@ header {
     }
 
     #know-about-pomodoro {
-        margin-top: 40px;
+        margin-top: 40px; /* CORREÇÃO: Remove os 400px do desktop */
         border-radius: 30px;
         padding: 40px 20px;
     }
@@ -604,7 +605,7 @@ header {
     .section-sticker-2 {
         font-size: 1em;
         margin-bottom: 10px;
-        width: auto !important; 
+        width: auto !important; /* CORREÇÃO: Libera os 10% fixos do desktop */
     }
 
     .about-project {
