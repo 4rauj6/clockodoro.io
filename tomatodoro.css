@@ -97,7 +97,7 @@ header {
     display: flex;
     text-align: center;
     color: rgb(238, 22, 22);
-    width: 100%;
+    width: 200%;
 }
 
 
@@ -139,329 +139,174 @@ header {
     border: 2px solid #ff0000;
 }
 
-
-
 #button2:hover {
-
     background-color: #ff0000;
-
     color: white;
-
 }
-
-
-
-
 
 .homepage-right-content img {
-
     width: 150%;
-
     max-width: 500px;
-
     height: auto;
-
 }
-
-
 
 #know-about-pomodoro {
-
     margin-top: 400px;
-
     background-color: white;
-
     border-radius: 150px 150px 0 0;
-
     padding: 10px 30px 90px;
-
 }
-
-
 
 #know-about-pomodoro h1 {
-
     font-size: 2.5em;
-
     color: #141414;
-
     margin-bottom: 20px;
-
     text-align: center;
-
     font-family: 'Poppins';
-
 }
 
-
-
 .content1 {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 70px;
-
 }
 
 
 
 .pomodoro-description {
-
     font-family: 'Nunito';
-
     text-align: center;
-
     width: 40%;
-
     font-size: 1.3em;
-
 }
-
-
 
 .section-sticker {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     height: 7vh;
-
     font-family: 'Nunito';
-
 }
-
-
-
 .timer-img {
-
     width: 30%;
-
     display: flex;
-
     justify-content: center;
-
     background-color: rgb(235, 76, 76);
-
     border-radius: 700px 10px 800px 700px;
-
     padding: 10px;
-
 }
-
-
 
 .timer-img img {
-
     width: 80%;
-
     max-width: 500px;
-
     height: auto;
-
 }
-
-
 
 #about {
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     background-color: rgb(235, 76, 76);
-
     color: white;
-
     padding: 90px 30px;
-
 }
-
-
 
 #about span {
-
     margin-top: 10px;
-
     margin-bottom: 10px;
-
     width: 10%;
-
     font-size: 1em;
-
 }
-
-
 
 #about h1 {
-
     font-family: 'Poppins';
-
 }
-
-
 
 .about-project {
-
     margin-top: 10px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     text-align: center;
-
     width: 70%;
-
     font-family: 'Nunito';
-
 }
 
-
-
 .pomodoro-app {
-
     display: none;
-
     padding: 40px;
-
     text-align: center;
-
     font-family: 'Cabin';
-
 }
 
 
 
 #timer-status h2 {
-
     font-family: 'Cabin' !important;
-
 }
 
-
-
 .timer-display {
-
     font-size: 4rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     margin: 20px 0;
-
 }
-
-
 
 .timer-setup {
-
     background-color: white;
-
     padding: 30px;
-
     width: 30%;
-
     border-radius: 20px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     margin: 0 auto;
-
 }
-
-
 
 .timer-setup label {
-
     font-family: 'Nunito', sans-serif;
     margin-right: 10px;
-
 }
-
-
 
 .timer-setup input {
-
     padding: 5px;
     font-family: 'Poppins';
-
     border-radius: 5px;
-
 }
-
-
 
 .button-control-group {
-
     width: 100%;
-
     padding: 10px;
-
     border-radius: 20px;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     margin: 0 auto;
-
     gap: 30px;
-
 }
-
-
 
 .button-control-group button {
-
     padding: 20px 30px;
-
 }
 
-
-
 #btn-reset {
-
     display: none;
-
     background-color: transparent;
     border: solid 2px red;
     color: red;
-
 }
-
-
 
 #btn-reset:hover {
-
     background-color: red;
-
     color: white;
-
 }
 
-@media (min-width: 460px) {
-    body {
+@media (max-width: 470px) {
+    html, body {
         overflow-x: hidden;
         width: 100%;
     }
@@ -501,7 +346,7 @@ header {
 
     .navbar-desktop.active {
         position: fixed;
-        top: 60px;
+        top: 70px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -529,7 +374,7 @@ header {
     }
 
     .homepage-left-content {
-        padding: 20px 10px; 
+        padding: 20px 10px;
         text-align: center;
         width: 100%;
         line-height: 1.2;
@@ -577,7 +422,7 @@ header {
     }
 
     #know-about-pomodoro {
-        margin-top: 40px; /* CORREÇÃO: Remove os 400px do desktop */
+        margin-top: 200px; 
         border-radius: 30px;
         padding: 40px 20px;
     }
@@ -604,7 +449,7 @@ header {
     .section-sticker-2 {
         font-size: 1em;
         margin-bottom: 10px;
-        width: auto !important; /* CORREÇÃO: Libera os 10% fixos do desktop */
+        width: auto !important; 
     }
 
     .about-project {
