@@ -4,7 +4,7 @@
 # Changelog 
 <ul>
   <li>Responsive display improved - now devices with screens width of 320px to 720px has better viewport</li>
-  <li>Time break now can be adjusted by the user</li>
+  <li>Rest time now can be adjusted by the user</li>
 </ul>
 
 # Pomodoro timer for studies
