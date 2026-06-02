@@ -461,7 +461,10 @@ header {
 }
 
 @media (max-width: 470px) {
-
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
 
     .homepage {
         flex-direction: column;
@@ -484,6 +487,7 @@ header {
         width: 45px; 
         height: 45px;
         border-radius: 10px;
+        z-index: 1000;
     }
 
     .fa-times {
@@ -524,63 +528,22 @@ header {
         }
     }
 
-    .navbar-desktop.close-trigger {
-
-        display: flex;
-    
-        flex-direction: column;
-    
-        justify-content: center;
-    
-        align-items: flex-start;
-    
-        width: 30%;
-    
-        border-radius: 20px;
-    
-        animation: closeAni 0.2s ease-in-out forwards;
-    
-    }
-    
-    
-    
-    @keyframes closeAni {
-    
-        from {
-    
-            opacity: 1;
-    
-            transform: translateX(0);
-    
-        }
-    
-        to {
-    
-            opacity: 0;
-    
-            transform: translateX(-100%);
-    
-        }
-    
-    }
-    
-
     .homepage-left-content {
-        padding: 40px 10px; 
+        padding: 20px 10px; 
         text-align: center;
         width: 100%;
         line-height: 1.2;
     }
 
     .homepage-left-content h1 {
-        font-size: 2.5em; 
+        font-size: 2.2em; 
         width: 100%;
     }
 
     .homepage-left-content h3 {
         font-size: 1.2em;
         text-align: center;
-        width: 100%;
+        width: 100% !important;
         display: block;
     }
 
@@ -597,6 +560,7 @@ header {
         flex-direction: column;
         align-items: center; 
         width: 100%;
+        gap: 10px;
     }
 
     .homepage-button {
@@ -613,6 +577,7 @@ header {
     }
 
     #know-about-pomodoro {
+        margin-top: 40px;
         border-radius: 30px;
         padding: 40px 20px;
     }
@@ -639,6 +604,7 @@ header {
     .section-sticker-2 {
         font-size: 1em;
         margin-bottom: 10px;
+        width: auto !important; 
     }
 
     .about-project {
@@ -669,4 +635,3 @@ header {
         max-width: 280px;
     }
 }
-
