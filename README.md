@@ -1,4 +1,4 @@
-#THE WEBSITE IS TEMPORARILY ON MAINTENCE
+# THE WEBSITE IS TEMPORARILY ON MAINTENCE
 <p>The Pomodorito's website/app is now on a maintence period by the it's author. The aplication may not work properly for 1-2 weeks. Please understand that times like this can happens every week. Doing this make the aplication faster, with more new functions and with way less bugs.<br> I'd like to thanks all the peoples that are supporting me in this project.</p>
 
 # pomodoro-study-appweb
