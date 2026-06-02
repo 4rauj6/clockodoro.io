@@ -460,7 +460,7 @@ header {
 
 }
 
-@media (max-width: 440px) {
+@media (max-width: 470px) {
     body {
         overflow-x: hidden;
         width: 100%;
