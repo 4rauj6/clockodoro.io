@@ -305,7 +305,7 @@ header {
     color: white;
 }
 
-@media (max-width: 470px) {
+@media (min-width: 470px) {
     html, body {
         overflow-x: hidden;
         width: 100%;
