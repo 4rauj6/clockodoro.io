@@ -460,9 +460,8 @@ header {
 
 }
 
-@media (max-width: 480px) {
-    /* Força o html e body a ignorarem qualquer transbordamento lateral */
-    html, body {
+@media (max-width: 440px) {
+    body {
         overflow-x: hidden;
         width: 100%;
     }
