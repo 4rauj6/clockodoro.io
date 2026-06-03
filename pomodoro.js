@@ -28,7 +28,7 @@ btnStart.addEventListener('click', () => {
 
 function startApp() {
     const appSection = document.getElementById('pomodoro-app');
-    const otherPages = document.querySelectorAll('.homepage, .about, .know-more');
+    const otherPages = document.querySelectorAll('.homepage, .about, .know-more, .footer, .profile-page');
 
     if (appSection.style.display === 'none' || appSection.style.display === '') {
         appSection.style.display = 'block';
