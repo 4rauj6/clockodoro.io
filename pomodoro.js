@@ -238,3 +238,16 @@ sidebarTriggerBtn.addEventListener('click', function () {
     icon.classList.toggle('fa-bars');
     icon.classList.toggle('fa-times');
 });
+
+function openUserProfile() {
+    const profileToShow = document.getElementById('profile-page');
+    const hideOthersSection = document.querySelectorAll('.homepage, .about, .know-more, .footer');
+
+    if (profileToShow.style.display === 'none' || profileToShow.style.display === '') {
+        profileToShow.style.display = 'block';
+        hideOthersSection.forEach(page => page.style.display = 'none');
+    } else {
+        profileToShow.style.display = 'none';
+        hideOthersSection.forEach(page => page.style.display = 'block');
+    }
+}
