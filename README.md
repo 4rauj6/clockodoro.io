@@ -3,6 +3,7 @@
 
 # Changelog 
 <ul>
+  <li>New functions added to the script.js file</li>
   <li>New fonts has been added to the main section</li>
   <li>The mobile navbar style and responsive display has been improved to a better view</li>
   <li>Responsive display improved - now devices with screens width of 320px to 720px has better viewport</li>
