@@ -1,141 +1,73 @@
 
-
 let timerInterval = null;
-
 let totalSeconds = 0;
-
 let initialFocoSeconds = 0;
-
 let isPaused = false;
-
 let currentMode = 'foco';
 
-
-
 const minutesDisplay = document.getElementById('minutes');
-
 const secondsDisplay = document.getElementById('seconds');
-
 const timerStatus = document.getElementById('timer-status');
-
 const userTimeInput = document.getElementById('user-time');
-
 const timerSetupDiv = document.getElementById('timer-setup');
-
 const btnStart = document.getElementById('btn-start');
-
 const btnPause = document.getElementById('btn-pause');
-
 const btnReset = document.getElementById('btn-reset');
 
-
-
 btnStart.addEventListener('click', () => {
-
     if (isPaused) {
-
         startCountdown();
-
         timerStatus.innerText = currentMode.includes('foco') ? 'Foco total!' : 'Hora de relaxar';
-
         toggleButtons(true);
-
         isPaused = false;
-
     } else {
-
         initPomodoro();
-
     }
-
 });
 
-
-
 function startApp() {
-
     const appSection = document.getElementById('pomodoro-app');
-
     const otherPages = document.querySelectorAll('.homepage, .about, .know-more');
 
-
-
-
-
     if (appSection.style.display === 'none' || appSection.style.display === '') {
-
         appSection.style.display = 'block';
-
         otherPages.forEach(page => page.style.display = 'none');
 
     } else {
-
         appSection.style.display = 'none';
-
         otherPages.forEach(page => page.style.display = 'block');
-
     }
-
 }
 
 
 
 function initPomodoro() {
-
     if (timerInterval && isPaused) {
-
         isPaused = false;
-
         startCountdown();
-
         toggleButtons(true);
-
         return;
-
     }
-
-
-
+    
     const getTaskString = document.getElementById('task-input').value.trim();
-
-
-
+    
     if (!getTaskString) {
-
         alert('Por favor preencha todos os campos');
-
         return;
-
     }
-
-
 
     const timeValue = userTimeInput.value;
-
     if (!timeValue) return alert("Por favor, insira um tempo válido.");
-
     const [minutes, seconds] = timeValue.split(':').map(Number);
-
-
-
     totalSeconds = (minutes * 60) + seconds;
 
-
-
     if (totalSeconds === 0) {
-
         alert("Defina um tempo maior que 00:00!");
-
         return;
-
     }
 
-
-
     initialFocoSeconds = totalSeconds;
-
     currentMode = 'foco';
-
     timerStatus.innerText = "Foco total!";
 
 
@@ -169,7 +101,6 @@ function updateDisplay(secondsToRender) {
 function startCountdown() {
 
     timerInterval = setInterval(() => {
-
         if (totalSeconds > 0) {
 
             totalSeconds--;
