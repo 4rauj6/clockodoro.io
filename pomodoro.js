@@ -1,4 +1,3 @@
-
 let timerInterval = null;
 let totalSeconds = 0;
 let initialFocoSeconds = 0;
@@ -14,8 +13,6 @@ const btnStart = document.getElementById('btn-start');
 const btnPause = document.getElementById('btn-pause');
 const btnReset = document.getElementById('btn-reset');
 
-const pauseTimeInput = document.getElementById('')
-
 btnStart.addEventListener('click', () => {
     if (isPaused) {
         startCountdown();
@@ -27,6 +24,8 @@ btnStart.addEventListener('click', () => {
     }
 });
 
+
+
 function startApp() {
     const appSection = document.getElementById('pomodoro-app');
     const otherPages = document.querySelectorAll('.homepage, .about, .know-more');
@@ -34,7 +33,6 @@ function startApp() {
     if (appSection.style.display === 'none' || appSection.style.display === '') {
         appSection.style.display = 'block';
         otherPages.forEach(page => page.style.display = 'none');
-
     } else {
         appSection.style.display = 'none';
         otherPages.forEach(page => page.style.display = 'block');
@@ -46,21 +44,28 @@ function startApp() {
 function initPomodoro() {
     if (timerInterval && isPaused) {
         isPaused = false;
+
         startCountdown();
         toggleButtons(true);
         return;
     }
-    
+
     const getTaskString = document.getElementById('task-input').value.trim();
-    
+
     if (!getTaskString) {
         alert('Por favor preencha todos os campos');
         return;
     }
 
     const timeValue = userTimeInput.value;
-    if (!timeValue) return alert("Por favor, insira um tempo válido.");
+
+    if (!timeValue) {
+        alert("Por favor, insira um tempo válido.");
+        return;
+    }
+
     const [minutes, seconds] = timeValue.split(':').map(Number);
+
     totalSeconds = (minutes * 60) + seconds;
 
     if (totalSeconds === 0) {
@@ -70,115 +75,71 @@ function initPomodoro() {
 
     initialFocoSeconds = totalSeconds;
     currentMode = 'foco';
+
     timerStatus.innerText = "Foco total!";
-
-
-
     timerSetupDiv.style.display = 'none';
 
     toggleButtons(true);
-
     updateDisplay(totalSeconds);
-
     startCountdown();
-
 }
-
-
 
 function updateDisplay(secondsToRender) {
-
     const mins = Math.floor(secondsToRender / 60);
-
     const secs = secondsToRender % 60;
-
     minutesDisplay.innerText = String(mins).padStart(2, '0');
-
     secondsDisplay.innerText = String(secs).padStart(2, '0');
-
 }
 
-
-
 function startCountdown() {
-
     timerInterval = setInterval(() => {
         if (totalSeconds > 0) {
-
             totalSeconds--;
-
             updateDisplay(totalSeconds);
-
             checkTimeTriggers();
-
         } else {
-
             clearInterval(timerInterval);
-
             handleTimerEnd();
-
         }
-
     }, 1000);
-
 }
 
 
 
 function checkTimeTriggers() {
-
     if (currentMode === 'foco') {
 
         const metadeTempo = Math.floor(initialFocoSeconds / 2);
 
-
-
         if (totalSeconds === metadeTempo) {
 
             clearInterval(timerInterval);
-
-            alert("Hora da pausa da metade! (15 minutos)");
-
             startBreak('pausa-metade');
 
         }
 
     }
-
 }
 
 
 
-function startBreak(type) {
+function startBreak() {
+    const pauseValue = document.getElementById('rest-time').value.trim();
+    const [restMinutes, restSeconds] = pauseValue.split(':').map(Number);
 
-    currentMode = type;
+    currentMode = 'pausa-metade';
 
-    timerStatus.innerText = "Hora de relaxar (Pausa de 15 min)";
+    alert('Hora de dar uma pausa');
 
-    totalSeconds = 15 * 60;
-
+    timerStatus.innerText = "Hora de relaxar";
+    totalSeconds = (restMinutes * 60) + restSeconds;
     updateDisplay(totalSeconds);
-
     startCountdown();
-
 }
-
-
-
 
 
 function handleTimerEnd() {
-
-    if (currentMode === 'foco') {
-
-        alert("Ciclo de foco completo! Pausa de 15 minutos iniciada.");
-
-        startBreak('pausa-final');
-
-    } else if (currentMode === 'pausa-metade') {
-
-
-
+    if (currentMode === 'pausa-metade') {
         alert("Pausa concluída! Voltando para o tempo restante de foco.");
 
         currentMode = 'foco';
@@ -188,13 +149,10 @@ function handleTimerEnd() {
         totalSeconds = Math.floor(initialFocoSeconds / 2);
 
         updateDisplay(totalSeconds);
-
         startCountdown();
 
     } else {
-
         alert("Pomodoro completamente concluído! Bom trabalho.");
-
         resetTimer();
 
     }
@@ -204,147 +162,79 @@ function handleTimerEnd() {
 
 
 function updateDisplay(secondsToRender) {
-
     const hrs = Math.floor(secondsToRender / 3600);
-
     const mins = Math.floor((secondsToRender % 3600) / 60);
-
     const secs = secondsToRender % 60;
 
-
-
     if (hrs > 0) {
-
         minutesDisplay.innerText = String(hrs * 60 + mins).padStart(2, '0');
-
     } else {
-
         minutesDisplay.innerText = String(mins).padStart(2, '0');
-
     }
 
     secondsDisplay.innerText = String(secs).padStart(2, '0');
-
 }
 
 
 
 function pauseTimer() {
-
     isPaused = true;
-
     clearInterval(timerInterval);
-
     timerStatus.innerText = "Pausado";
-
     btnStart.style.display = 'inline-block';
-
     btnStart.innerHTML = 'Retomar <i class="fa fa-play"></i>';
-
     btnPause.style.display = 'none';
-
 }
 
 
 
 function resetTimer() {
-
     clearInterval(timerInterval);
-
     timerInterval = null;
-
     totalSeconds = 0;
-
     initialFocoSeconds = 0;
-
     isPaused = false;
-
     currentMode = 'foco';
 
-
-
     timerStatus.innerText = "Pronto para começar?";
-
     minutesDisplay.innerText = "00";
-
     secondsDisplay.innerText = "00";
-
-
-
-    timerSetupDiv.style.display = 'block';
+    timerSetupDiv.style.display = 'column';
 
     toggleButtons(false);
-
 }
-
-
-
-
 
 function toggleButtons(running) {
-
     if (running) {
-
         btnStart.style.display = 'none';
-
         btnPause.style.display = 'inline-block';
-
         btnReset.style.display = 'inline-block';
-
     } else {
-
         btnStart.style.display = 'inline-block';
-
         btnStart.innerHTML = 'Iniciar Foco <i class="fa fa-play"></i>';
-
         btnPause.style.display = 'none';
-
         btnReset.style.display = 'none';
-
     }
-
 }
 
-
-
 const sidebarTriggerBtn = document.querySelector('.open-sidebar');
-
 const sidebarToOpen = document.querySelector('.navbar-desktop');
-
 const icon = document.querySelector('.fa-bars');
 
-
-
 sidebarTriggerBtn.addEventListener('click', function () {
-
     const isSidebarOpen = sidebarToOpen.classList.contains('active');
 
-
-
     if (isSidebarOpen) {
-
         sidebarToOpen.classList.add('close-trigger');
 
-
-
         setTimeout(() => {
-
             sidebarToOpen.classList.remove('active');
-
             sidebarToOpen.classList.remove('close-trigger');
-
         }, 200);
-
     } else {
-
         sidebarToOpen.classList.add('active');
-
     }
 
-
-
     icon.classList.toggle('fa-bars');
-
     icon.classList.toggle('fa-times');
-
 });
