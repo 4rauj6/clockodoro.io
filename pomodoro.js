@@ -14,6 +14,8 @@ const btnStart = document.getElementById('btn-start');
 const btnPause = document.getElementById('btn-pause');
 const btnReset = document.getElementById('btn-reset');
 
+const pauseTimeInput = document.getElementById('')
+
 btnStart.addEventListener('click', () => {
     if (isPaused) {
         startCountdown();
