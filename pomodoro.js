@@ -199,7 +199,7 @@ function resetTimer() {
     timerStatus.innerText = "Pronto para começar?";
     minutesDisplay.innerText = "00";
     secondsDisplay.innerText = "00";
-    timerSetupDiv.style.display = 'column';
+    timerSetupDiv.style.display = 'flex';
 
     toggleButtons(false);
 }
