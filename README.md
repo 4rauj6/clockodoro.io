@@ -3,6 +3,10 @@
 
 # Changelog 
 <ul>
+  <li>Now when a section been completed succesfully the user going to win 10 points</li>
+  <li>user's rest time logic has been updated and improved </li>
+  <li>The Sweet Alert library has been added</li>
+  <li>The timer logic has been improved</li>
   <li>New functions added to the script.js file</li>
   <li>New fonts has been added to the main section</li>
   <li>The mobile navbar style and responsive display has been improved to a better view</li>
