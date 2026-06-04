@@ -187,16 +187,9 @@ function handleTimerEnd() {
 
 
 function updateDisplay(secondsToRender) {
-    const hrs = Math.floor(secondsToRender / 3600);
-    const mins = Math.floor((secondsToRender % 3600) / 60);
+    const mins = Math.floor(secondsToRender / 60);
     const secs = secondsToRender % 60;
-
-    if (hrs > 0) {
-        minutesDisplay.innerText = String(hrs * 60 + mins).padStart(2, '0');
-    } else {
-        minutesDisplay.innerText = String(mins).padStart(2, '0');
-    }
-
+   tesDisplay.innerText = String(mins).padStart(2, '0');
     secondsDisplay.innerText = String(secs).padStart(2, '0');
 }
 
