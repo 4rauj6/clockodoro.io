@@ -3,6 +3,7 @@ let totalSeconds = 0;
 let initialFocoSeconds = 0;
 let isPaused = false;
 let currentMode = 'foco';
+let pontos = 0;
 
 const minutesDisplay = document.getElementById('minutes');
 const secondsDisplay = document.getElementById('seconds');
@@ -60,7 +61,7 @@ function initPomodoro() {
     const timeValue = userTimeInput.value;
 
     if (!timeValue) {
-        alert("Por favor, insira um tempo válido.");
+        alert("Por favor, insira um tempo válido.");    
         return;
     }
 
@@ -129,31 +130,55 @@ function startBreak() {
 
     currentMode = 'pausa-metade';
 
-    alert('Hora de dar uma pausa');
-
-    timerStatus.innerText = "Hora de relaxar";
-    totalSeconds = (restMinutes * 60) + restSeconds;
-    updateDisplay(totalSeconds);
-    startCountdown();
+    Swal.fire({
+        title: 'Hora de dar uma pausa!',
+        text: 'Aproveite para esticar as pernas e relaxar um pouco.',
+        icon: 'warning',
+        iconColor: 'red',
+        confirmButtonText: 'Confirrmar',
+        confirmButtonColor: 'red',
+        allowOutsideClick: false,
+        titleColor: 'red'
+    }).then((result) => {
+        timerStatus.innerText = "Hora de relaxar";
+        totalSeconds = (restMinutes * 60) + restSeconds;
+        updateDisplay(totalSeconds);
+        startCountdown();
+    });
 }
 
 
 function handleTimerEnd() {
     if (currentMode === 'pausa-metade') {
-        alert("Pausa concluída! Voltando para o tempo restante de foco.");
-
-        currentMode = 'foco';
-
-        timerStatus.innerText = "Foco total (Segunda metade)!";
-
-        totalSeconds = Math.floor(initialFocoSeconds / 2);
-
-        updateDisplay(totalSeconds);
-        startCountdown();
-
+        Swal.fire({
+            title: 'A pausa acabou!',
+            text: 'Está na hora de voltar ao foco',
+            icon: 'warning',
+            iconColor: 'red',
+            confirmButtonText: 'Confirmar',
+            confirmButtonColor: 'red',
+            titleColor: 'red',
+            allowOutsideClick: false
+        }).then(() => {
+            currentMode = 'foco';
+            timerStatus.innerText = 'Foco total';
+            totalSeconds = Math.floor(initialFocoSeconds / 2);
+            updateDisplay(totalSeconds);
+            startCountdown();
+            pontos += 10;
+        })
     } else {
-        alert("Pomodoro completamente concluído! Bom trabalho.");
-        resetTimer();
+        Swal.fire({
+            title: 'Sessão concluída com sucesso!',
+            text: `Muito bem, você manteve o foco e concluiu sua tarefa! ${pontos} pontos conquistados!`,
+            icon: 'success',
+            confirmButtonText: 'Confirmar',
+            confirmButtonColor: 'red',
+            textColor: 'red',
+            allowOutsideClick: false
+        }).then(() => {
+            resetTimer();
+        });
 
     }
 
