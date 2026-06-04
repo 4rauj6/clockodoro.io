@@ -65,17 +65,10 @@ function initPomodoro() {
         return;
     }
 
-    // COLE ESTE BLOCO NO LUGAR:
-if (timeValue.includes(':')) {
-    // Se você digitou com dois pontos (Ex: "25:00" ou "00:05")
-    const parts = timeValue.split(':').map(Number);
-    totalSeconds = (parts[0] * 60) + (parts[1] || 0);
-} else {
-    // Se você digitou só o número no celular para testar (Ex: "5")
-    // O sistema lê direto como 5 segundos
-    totalSeconds = parseInt(timeValue, 10);
-}
-    
+    const [minutes, seconds] = timeValue.split(':').map(Number);
+
+    totalSeconds = (minutes * 60) + seconds;
+
     if (totalSeconds === 0) {
         alert("Defina um tempo maior que 00:00!");
         return;
@@ -133,13 +126,8 @@ function checkTimeTriggers() {
 
 function startBreak() {
     const pauseValue = document.getElementById('rest-time').value.trim();
-    // COLE ESTE BLOCO NO LUGAR:
-if (pauseValue.includes(':')) {
-    const parts = pauseValue.split(':').map(Number);
-    totalSeconds = (parts[0] * 60) + (parts[1] || 0);
-} else {
-    totalSeconds = parseInt(pauseValue, 10);
-}
+    const [restMinutes, restSeconds] = pauseValue.split(':').map(Number);
+
     currentMode = 'pausa-metade';
 
     Swal.fire({
@@ -153,6 +141,7 @@ if (pauseValue.includes(':')) {
         titleColor: 'red'
     }).then((result) => {
         timerStatus.innerText = "Hora de relaxar";
+        totalSeconds = (restMinutes * 60) + restSeconds;
         updateDisplay(totalSeconds);
         startCountdown();
     });
@@ -195,12 +184,23 @@ function handleTimerEnd() {
 
 }
 
+
+
 function updateDisplay(secondsToRender) {
-    const mins = Math.floor(secondsToRender / 60);
+    const hrs = Math.floor(secondsToRender / 3600);
+    const mins = Math.floor((secondsToRender % 3600) / 60);
     const secs = secondsToRender % 60;
-    minutesDisplay.innerText = String(mins).padStart(2, '0');
+
+    if (hrs > 0) {
+        minutesDisplay.innerText = String(hrs * 60 + mins).padStart(2, '0');
+    } else {
+        minutesDisplay.innerText = String(mins).padStart(2, '0');
+    }
+
     secondsDisplay.innerText = String(secs).padStart(2, '0');
 }
+
+
 
 function pauseTimer() {
     isPaused = true;
