@@ -156,16 +156,28 @@
             <h2 id="timer-status" style="font-family: 'Poppins';">Pronto para começar?</h2>
 
             <div class="timer-display">
-                <span id="minutes">00</span>:<span id="seconds">00</span>
+                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
             </div>
 
 
 
             <div class="timer-setup" id="timer-setup">
                 <label for="user-time">Definir tempo de foco:</label>
-                <input type="time" id="user-time" value="00:05" required><br>
+                
+                <div class="set-timer-container">
+                    <input type="number" class="hours-focus" value="00" inputmode="numeric" required>
+                    <input type="number" class="minutes-focus" value="10" inputmode="numeric" required>
+                    <input type="number" class="seconds-focus" value="00" inputmode="numeric" required>
+                </div>
+
                 <label for="rest-time">Definir tempo de pausa:</label>
-                <input type="time" id="rest-time" value="00:05" required><br>
+                
+                <div class="set-rest-container">
+                    <input type="number" class="hours-rest"  value="00" inputmode="numeric" required>
+                    <input type="number" class="minutes-rest" value="05" inputmode="numeric" required>
+                    <input type="number" class="seconds-rest" value="00" inputmode="numeric" required>
+                </div>
+                
                 <label for="task-input">Definir uma tarefa:</label>
                 <input type="text" id="task-input">
             </div>
