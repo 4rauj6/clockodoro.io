@@ -3,6 +3,8 @@
 
 # Changelog 
 <ul>
+  <li>New improvements to the timer's logic - All timer's inputs has been changed to type "Number". Now the user have a more flexible time choice for his tasks</li>
+  <li>New style to the timer's inputs</li>
   <li>Now when a section been completed succesfully the user going to win 10 points</li>
   <li>user's rest time logic has been updated and improved </li>
   <li>The Sweet Alert library has been added</li>
