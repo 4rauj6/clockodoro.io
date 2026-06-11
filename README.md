@@ -1,5 +1,5 @@
-# THE WEBSITE IS TEMPORARILY ON MAINTENCE
-<p>The Pomodorito's website/app is now on a maintence period by the it's author. The aplication may not work properly for 1-2 weeks. Please understand that times like this can happens every week. Doing this i can let the aplication faster, with new functions and way less bugs.<br> I'd like to thanks all the peoples that are supporting me in this project.</p>
+# NEW UPDATES ARE COMING SOON!
+<p>Hi everybody, 4rauj6's here! I've been work a lot in my side projects (especially in that ones from my software develpment and analysis classes), but here i'm to bring for you all the newests Pomodorito's updates./p>
 
 # Changelog 
 <ul>
