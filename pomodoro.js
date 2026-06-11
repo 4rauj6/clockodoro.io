@@ -7,6 +7,7 @@ let pontos = 0;
 
 const minutesDisplay = document.getElementById('minutes');
 const secondsDisplay = document.getElementById('seconds');
+const hoursDisplay = document.getElementById('hours');
 const timerStatus = document.getElementById('timer-status');
 const userTimeInput = document.getElementById('user-time');
 const timerSetupDiv = document.getElementById('timer-setup');
@@ -15,9 +16,11 @@ const btnPause = document.getElementById('btn-pause');
 const btnReset = document.getElementById('btn-reset');
 
 btnStart.addEventListener('click', () => {
+    const userTask = document.getElementById('task-input').value.trim();
+
     if (isPaused) {
         startCountdown();
-        timerStatus.innerText = currentMode.includes('foco') ? 'Foco total!' : 'Hora de relaxar';
+        timerStatus.innerText = currentMode.includes('foco') ? `Tarefa atual: ${userTask}` : 'Hora de relaxar';
         toggleButtons(true);
         isPaused = false;
     } else {
@@ -58,26 +61,52 @@ function initPomodoro() {
         return;
     }
 
-    const timeValue = userTimeInput.value;
+    const focusHours = Number(document.querySelector('.hours-focus').value);
+    const focusMinutes = Number(document.querySelector('.minutes-focus').value);
+    const focusSeconds = Number(document.querySelector('.seconds-focus').value);
 
-    if (!timeValue) {
-        alert("Por favor, insira um tempo válido.");    
+    const getRestHours = Number(document.querySelector('.hours-rest').value);
+    const getRestMinutes = Number(document.querySelector('.minutes-rest').value);
+    const getRestSeconds = Number(document.querySelector('.seconds-rest').value);
+
+    totalSeconds = (focusHours * 3600) + (focusMinutes * 60) + focusSeconds;
+
+    const getRestValues = (getRestHours * 3600) + (getRestMinutes * 60) + getRestSeconds;
+
+    if (totalSeconds <= 0) {
+        Swal.fire({
+            title: 'Campos não preenchidos',
+            titleColor: 'red',
+            icon: 'warning',
+            iconColor: 'red',
+            text: 'Por favor defina um tempo válido ou maior',
+            confirmButtonText: 'OK',
+            confirmButtonColor: 'red',
+            allowOutsideClick: false
+        })  
         return;
     }
 
-    const [minutes, seconds] = timeValue.split(':').map(Number);
+    restInputs = getRestHours, getRestMinutes, getRestSeconds;
 
-    totalSeconds = (minutes * 60) + seconds;
-
-    if (totalSeconds === 0) {
-        alert("Defina um tempo maior que 00:00!");
+    if(!getRestValues) {
+        Swal.fire({
+            title: 'Campos não preenchidos',
+            titleColor: 'red',
+            icon: 'warning',
+            iconColor: 'red',
+            text: 'Por favor defina um tempo de descanso válido ou maior',
+            confirmButtonText: 'OK',
+            confirmButtonColor: 'red',
+            allowOutsideClick: false
+        })  
         return;
     }
 
     initialFocoSeconds = totalSeconds;
     currentMode = 'foco';
 
-    timerStatus.innerText = "Foco total!";
+    timerStatus.innerText = `Tarefa atual: ${getTaskString}`
     timerSetupDiv.style.display = 'none';
 
     toggleButtons(true);
@@ -85,14 +114,9 @@ function initPomodoro() {
     startCountdown();
 }
 
-function updateDisplay(secondsToRender) {
-    const mins = Math.floor(secondsToRender / 60);
-    const secs = secondsToRender % 60;
-    minutesDisplay.innerText = String(mins).padStart(2, '0');
-    secondsDisplay.innerText = String(secs).padStart(2, '0');
-}
-
 function startCountdown() {
+    clearInterval(timerInterval);
+
     timerInterval = setInterval(() => {
         if (totalSeconds > 0) {
             totalSeconds--;
@@ -125,8 +149,11 @@ function checkTimeTriggers() {
 
 
 function startBreak() {
-    const pauseValue = document.getElementById('rest-time').value.trim();
-    const [restMinutes, restSeconds] = pauseValue.split(':').map(Number);
+    const restHours = Number(document.querySelector('.hours-rest').value);
+    const restMinutes = Number(document.querySelector('.minutes-rest').value);
+    const restSeconds = Number(document.querySelector('.seconds-rest').value);
+
+    const restTotalTImer = (restHours * 3600) + (restMinutes * 60) + restSeconds
 
     currentMode = 'pausa-metade';
 
@@ -141,7 +168,7 @@ function startBreak() {
         titleColor: 'red'
     }).then((result) => {
         timerStatus.innerText = "Hora de relaxar";
-        totalSeconds = (restMinutes * 60) + restSeconds;
+        totalSeconds = restTotalTImer
         updateDisplay(totalSeconds);
         startCountdown();
     });
@@ -191,21 +218,24 @@ function updateDisplay(secondsToRender) {
     const mins = Math.floor((secondsToRender % 3600) / 60);
     const secs = secondsToRender % 60;
 
-    if (hrs > 0) {
-        minutesDisplay.innerText = String(hrs * 60 + mins).padStart(2, '0');
-    } else {
-        minutesDisplay.innerText = String(mins).padStart(2, '0');
-    }
+    document.getElementById("hours").innerText =
+        String(hrs).padStart(2, '0');
 
-    secondsDisplay.innerText = String(secs).padStart(2, '0');
+    minutesDisplay.innerText =
+        String(mins).padStart(2, '0');
+
+    secondsDisplay.innerText =
+        String(secs).padStart(2, '0');
 }
 
 
 
 function pauseTimer() {
+
+    const actualTask = document.getElementById('task-input').value;
     isPaused = true;
     clearInterval(timerInterval);
-    timerStatus.innerText = "Pausado";
+    timerStatus.innerText = `Tempo pausado. Sua tarefa atual é: ${actualTask}`;
     btnStart.style.display = 'inline-block';
     btnStart.innerHTML = 'Retomar <i class="fa fa-play"></i>';
     btnPause.style.display = 'none';
@@ -222,6 +252,7 @@ function resetTimer() {
     currentMode = 'foco';
 
     timerStatus.innerText = "Pronto para começar?";
+    hoursDisplay.innerText = "00";
     minutesDisplay.innerText = "00";
     secondsDisplay.innerText = "00";
     timerSetupDiv.style.display = 'flex';
