@@ -1,5 +1,5 @@
 # NEW UPDATES ARE COMING SOON!
-<p>Hi everybody, 4rauj6's here! I've been work a lot in my side projects (especially in that ones from my software develpment and analysis classes), but here i'm to bring for you all the newests Pomodorito's updates./p>
+<p>Hi everybody, 4rauj6's here! I've been work a lot in my side projects (especially in that ones from my software develpment and analysis classes), but here i'm to bring for you all the newests Pomodorito's updates.<br> So, for some weeks i've been thinking how can i improve this App-Web, for a better perfomance and to be way more useful to the final users. </p>
 
 # Changelog 
 <ul>
