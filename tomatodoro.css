@@ -119,10 +119,10 @@ header {
 }
 
 .homepage-button {
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -372,52 +372,34 @@ header {
 
 
 .timer-setup {
-
-    background-color: white;
-
-    padding: 30px;
-
-    width: 30%;
-
-    border-radius: 20px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
+    background-color: white;
+    padding: 30px;
+    width: 50%;
+    gap: 13px;
+    border-radius: 30px;
     margin: 0 auto;
 
 }
 
-
-
 .timer-setup label {
-
     font-family: 'Nunito', sans-serif;
-    margin-right: 10px;
-
 }
-
 
 .timer-setup input {
-
     padding: 5px;
     font-family: 'Poppins';
-
     border-radius: 5px;
-
 }
-
 .time-input-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 50px;
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
@@ -428,24 +410,43 @@ header {
     text-align: center;
 }
 
+.set-timer-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.set-timer-container input {
+    width: 20%;
+}
+
+.set-rest-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.set-rest-container input {
+    width: 20%;
+}
+
+#task-input {
+    width: 60%;
+    padding: 6px;
+}
 
 
 .button-control-group {
-
     width: 100%;
-
     padding: 10px;
-
-    border-radius: 20px;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     margin: 0 auto;
-
     gap: 30px;
 
 }
@@ -453,6 +454,7 @@ header {
 
 
 .button-control-group button {
+    border-radius: 30px;
     padding: 20px 30px;
 }
 
