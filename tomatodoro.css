@@ -475,8 +475,81 @@ header {
     font-family: 'Nunito';
 }
 
-.profile-icon {
-    font-size: 1.6em;
+.profile-signin-page {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.text-content-signin {
+    text-align: center;
+    margin-bottom: 80px;
+    line-height: 1.4;
+}
+
+.text-content-signin h2 {
+    font-size: 2em;
+}
+
+.text-content-signin p {
+    font-size: 1.5em;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.text-content-signin img {
+    width: 50%;
+}
+
+#sign-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);
+    width: 35%;
+    height: 60vh;
+    border-radius: 20px;
+    line-height: 0.5;
+}
+
+#sign-in-form h3 {
+    font-size: 2em;
+}
+
+#sign-in-form p {
+    font-size: 1.3em;
+    line-height: 1;
+    width: 60%;
+    margin-bottom: 20px
+}
+
+#sign-in-form input[type="text"] {
+    padding: 3px 10px;
+}
+
+#sign-in-form input[type="submit"] {
+    padding: 7px 72px;
+    font-size: 1em;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: red;
+    border: solid 2px red;
+    transition: 0.3s;
+}
+
+#sign-in-form input[type="submit"]:hover {
+    background-color: red;
+    color: white;
 }
 
 @media (min-width: 360px) and (max-width: 730px) {
