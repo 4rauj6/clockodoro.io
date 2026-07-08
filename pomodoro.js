@@ -1,6 +1,7 @@
 let timerInterval = null;
 let totalSeconds = 0;
 let initialFocoSeconds = 0;
+let initialStageSeconds = 0;
 let isPaused = false;
 let currentMode = "foco";
 let pontos = 0;
@@ -11,6 +12,7 @@ const hoursDisplay = document.getElementById("hours");
 const timerStatus = document.getElementById("timer-status");
 const userTimeInput = document.getElementById("user-time");
 const timerSetupDiv = document.getElementById("timer-setup");
+const progressBarId = document.getElementById("progress-fill");
 const btnStart = document.getElementById("btn-start");
 const btnPause = document.getElementById("btn-pause");
 const btnReset = document.getElementById("btn-reset");
@@ -30,10 +32,16 @@ btnStart.addEventListener("click", () => {
   }
 });
 
+function progressBar() {
+  if (initialStageSeconds <= 0) return;
+
+  const progressOfTimer = (totalSeconds / initialStageSeconds) * 100;
+  progressBarId.style.width = `${progressOfTimer}%`;
+}
+
 function initPomodoro() {
   if (timerInterval && isPaused) {
     isPaused = false;
-
     startCountdown();
     toggleButtons(true);
     return;
@@ -55,6 +63,7 @@ function initPomodoro() {
   const getRestSeconds = Number(document.querySelector(".seconds-rest").value);
 
   totalSeconds = focusHours * 3600 + focusMinutes * 60 + focusSeconds;
+  initialStageSeconds = totalSeconds;
 
   const getRestValues =
     getRestHours * 3600 + getRestMinutes * 60 + getRestSeconds;
@@ -147,6 +156,7 @@ function startBreak() {
   }).then((result) => {
     timerStatus.innerText = "Hora de relaxar";
     totalSeconds = restTotalTImer;
+    initialStageSeconds = totalSeconds;
     updateDisplay(totalSeconds);
     startCountdown();
   });
@@ -167,6 +177,7 @@ function handleTimerEnd() {
       currentMode = "foco";
       timerStatus.innerText = "Foco total";
       totalSeconds = Math.floor(initialFocoSeconds / 2);
+      initialStageSeconds = totalSeconds;
       updateDisplay(totalSeconds);
       startCountdown();
       pontos += 10;
@@ -196,6 +207,8 @@ function updateDisplay(secondsToRender) {
   minutesDisplay.innerText = String(mins).padStart(2, "0");
 
   secondsDisplay.innerText = String(secs).padStart(2, "0");
+
+  progressBar();
 }
 
 function pauseTimer() {
@@ -213,12 +226,14 @@ function resetTimer() {
   timerInterval = null;
   totalSeconds = 0;
   initialFocoSeconds = 0;
+  initialStageSeconds = 0;
   isPaused = false;
   currentMode = "foco";
 
-  timerStatus.innerText = "Pronto para começar?";
+  timerStatus.innerText = "";
   hoursDisplay.innerText = "00";
   minutesDisplay.innerText = "00";
+  progressBarId.style.width = "100%";
   secondsDisplay.innerText = "00";
   timerSetupDiv.style.display = "flex";
 

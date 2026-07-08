@@ -66,16 +66,16 @@
 
 
     <section class="pomodoro-app" id="pomodoro-app">
-        <span class="section-sticker-main">Cronômetro pomodoro</span>
 
         <div class="timer-container">
-            <h2 id="timer-status" style="font-family: 'Poppins';">Pronto para começar?</h2>
-
             <div class="timer-display">
+                <h2 id="timer-status"></h2>
                 <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
             </div>
 
-
+            <div class="progress-container">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div><br>
 
             <div class="timer-setup" id="timer-setup">
                 <label for="user-time">Definir tempo de foco:</label>
@@ -97,9 +97,6 @@
                 <label for="task-input">Definir uma tarefa:</label>
                 <input type="text" id="task-input">
             </div>
-
-
-
             <div class="button-control-group" style="margin-top: 20px;">
                 <button id="btn-start" class="start-app-button">
                     Iniciar Tarefa <i class="fa fa-play"></i>
@@ -145,10 +142,6 @@
                     dependendo
                     do ritmo e da capacidade de concentração de cada pessoa.
                 </p>
-
-                <div class="timer-img">
-                    <img src="assets-pomodoro/17543960_2002.i515.001_modern_students_flat_icons-13.svg" alt="">
-                </div>
             </div>
         </section>
 
