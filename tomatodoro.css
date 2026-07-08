@@ -800,7 +800,7 @@ input::-webkit-inner-spin-button {
 
 
 
-@media (min-width: 360px) and (max-width: 730px) {
+@media (min-width: 360px) and (max-width: 740px) {
 
   html,
 
@@ -1096,4 +1096,4 @@ input::-webkit-inner-spin-button {
 
   margin-top: 500px;
 
-    }
+  }
