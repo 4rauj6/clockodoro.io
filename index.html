@@ -44,14 +44,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#know-about-pomodoro">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Conhecer
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        <i class="fa fa-info" aria-hidden="true"></i> Sobre
+                    <a class="show-hide-elements">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Mais
                     </a>
                 </li>
 
@@ -63,7 +57,7 @@
 
                 <li>
                     <a onclick="openUserProfile()" class="profile-icon">
-                        <i class="fa fa-user"></i> Seu perfil
+                        <i class="fa fa-user"></i> Meu perfil
                     </a>
                 </li>
             </ul>
@@ -71,86 +65,8 @@
     </header>
 
 
-
-    <section class="homepage" id="home-page">
-        <div class="homepage-left-content">
-            <h1>Pomodoro Clocker</h1>
-            <h3>Aprenda mais, perca menos tempo</h3>
-            <p>Gerencie seu tempo com eficiência e produtividade. Com o Tomatodoro, estudar não precisa ser cansativo.
-            </p>
-
-            <div class="button-group">
-                <button onclick="startApp()" class="homepage-button">
-                    Começar <i class="fa fa-play"></i>
-                </button>
-
-                <a href="#know-about-pomodoro" style="text-decoration: none;">
-                    <button class="homepage-button" id="button2">
-                        Conhecer o pomodoro <i class="fa fa-plus"></i>
-                    </button>
-                </a>
-            </div>
-        </div>
-
-
-
-        <div class="homepage-right-content">
-            <img src="assets-pomodoro/189981190_03f78755-e337-4c90-8164-d362b39601be.svg" alt="Tomate">
-        </div>
-    </section>
-
-
-
-    <section id="know-about-pomodoro" class="know-more">
-        <span class="section-sticker">Conhecendo melhor</span>
-        <h1>O que é o método pomodoro?</h1>
-
-        <div class="content1">
-            <p class="pomodoro-description">
-                O método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final
-                dos anos 1980. Seu objetivo principal é aumentar a produtividade e a concentração, dividindo o trabalho
-                em
-                intervalos curtos e intensos, intercalados com pequenas pausas. Ele funciona de forma simples e clara:
-                Escolher uma tarefa a ser realizada.
-
-                Definir um timer para 25 minutos, período chamado de “Pomodoro”, durante o qual você se dedica
-                exclusivamente à tarefa, sem distrações.
-                Trabalhar até o timer tocar. Se surgir alguma interrupção, anotá-la para resolver depois.
-                Fazer uma pausa curta de 5 minutos, relaxando a mente.
-                Repetir o ciclo. Após quatro Pomodoros consecutivos, faz-se uma pausa mais longa, geralmente de 15 a 30
-                minutos, para descansar profundamente.
-
-                Os principais benefícios do método Pomodoro incluem:
-                Maior foco e produtividade, pois promove atenção plena à tarefa.
-                Redução da procrastinação, ao dividir grandes tarefas em blocos menores.
-                Melhor gerenciamento de tempo, com consciência de quanto tempo se gasta em cada atividade.
-                Prevenção do cansaço mental, graças às pausas regulares.
-                Além disso, o método é altamente flexível: pode ser adaptado a diferentes durações de Pomodoro,
-                dependendo
-                do ritmo e da capacidade de concentração de cada pessoa.
-            </p>
-
-            <div class="timer-img">
-                <img src="assets-pomodoro/17543960_2002.i515.001_modern_students_flat_icons-13.svg" alt="">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <p class="section-sticker-2">Sobre o projeto</p>
-        <h1>Conhecendo o projeto a fundo</h1>
-
-        <p class="about-project">
-            Esta aplicação é uma prova de conceito criada por João Victor Araújo de Sousa. O seu intuído é apenas (e
-            únicamente) o aprendizado e o treinamento das habilidades como desenvolvedor Front-End de seu autor. Com o
-            auxílio do Professor Eduardo do curso de Desenvolvimento de Sistemas do SENAI MA, este App-Web nãoo teria
-            sido desenvolvido e aperfeiçoado. Seu intuíto foi pensado para ser uma aplição de fácil entendimento,
-            manuntenção e funcionamento.
-        </p>
-    </section>
-
     <section class="pomodoro-app" id="pomodoro-app">
-        <span class="section-sticker">Cronômetro</span>
+        <span class="section-sticker-main">Cronômetro pomodoro</span>
 
         <div class="timer-container">
             <h2 id="timer-status" style="font-family: 'Poppins';">Pronto para começar?</h2>
@@ -185,7 +101,7 @@
 
 
             <div class="button-control-group" style="margin-top: 20px;">
-                <button id="btn-start" class="homepage-button">
+                <button id="btn-start" class="start-app-button">
                     Iniciar Tarefa <i class="fa fa-play"></i>
                 </button>
 
@@ -199,6 +115,56 @@
             </div>
         </div>
     </section>
+
+    <div id="ElementHided">
+        <section id="know-about-pomodoro" class="know-more">
+            <span class="section-sticker">Conhecendo melhor</span>
+            <h1>O que é o método pomodoro?</h1>
+
+            <div class="content1">
+                <p class="pomodoro-description">
+                    O método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final
+                    dos anos 1980. Seu objetivo principal é aumentar a produtividade e a concentração, dividindo o trabalho
+                    em
+                    intervalos curtos e intensos, intercalados com pequenas pausas. Ele funciona de forma simples e clara:
+                    Escolher uma tarefa a ser realizada.
+
+                    Definir um timer para 25 minutos, período chamado de “Pomodoro”, durante o qual você se dedica
+                    exclusivamente à tarefa, sem distrações.
+                    Trabalhar até o timer tocar. Se surgir alguma interrupção, anotá-la para resolver depois.
+                    Fazer uma pausa curta de 5 minutos, relaxando a mente.
+                    Repetir o ciclo. Após quatro Pomodoros consecutivos, faz-se uma pausa mais longa, geralmente de 15 a 30
+                    minutos, para descansar profundamente.
+
+                    Os principais benefícios do método Pomodoro incluem:
+                    Maior foco e produtividade, pois promove atenção plena à tarefa.
+                    Redução da procrastinação, ao dividir grandes tarefas em blocos menores.
+                    Melhor gerenciamento de tempo, com consciência de quanto tempo se gasta em cada atividade.
+                    Prevenção do cansaço mental, graças às pausas regulares.
+                    Além disso, o método é altamente flexível: pode ser adaptado a diferentes durações de Pomodoro,
+                    dependendo
+                    do ritmo e da capacidade de concentração de cada pessoa.
+                </p>
+
+                <div class="timer-img">
+                    <img src="assets-pomodoro/17543960_2002.i515.001_modern_students_flat_icons-13.svg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <p class="section-sticker-2">Sobre o projeto</p>
+            <h1>Conhecendo o projeto a fundo</h1>
+
+            <p class="about-project">
+                Esta aplicação é uma prova de conceito criada por João Victor Araújo de Sousa. O seu intuído é apenas (e
+                únicamente) o aprendizado e o treinamento das habilidades como desenvolvedor Front-End de seu autor. Com o
+                auxílio do Professor Eduardo do curso de Desenvolvimento de Sistemas do SENAI MA, este App-Web nãoo teria
+                sido desenvolvido e aperfeiçoado. Seu intuíto foi pensado para ser uma aplição de fácil entendimento,
+                manuntenção e funcionamento.
+            </p>
+        </section>
+    </div>
 
     <section id="profile-page">
         <div class="profile-main-page">
