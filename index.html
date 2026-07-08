@@ -1,183 +1,358 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     
+
     <script src="pomodoro.js" defer></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     
+
     <link rel="stylesheet" href="tomatodoro.css">
+
     </link>
 
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
+
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+
         rel="stylesheet">
+
+
 
     <title>Pomodorito</title>
+
 </head>
 
+
+
 <body>
+
     <header>
+
         <div class="nav-mobile-button">
+
             <button class="open-sidebar">
+
                 <i class="fa fa-bars"></i>
+
             </button>
+
         </div>
 
+
+
         <nav class="navbar-desktop">
+
             <a href="" class="site-logo">
+
                 <img src="assets-pomodoro/189981190_03f78755-e337-4c90-8164-d362b39601be.svg" alt="">
+
             </a>
+
             <ul class="nav-list-pc">
+
                 <li>
+
                     <a href="">
+
                         <i class="fa fa-home"></i> Home
+
                     </a>
+
                 </li>
+
                 <li>
+
                     <a class="show-hide-elements">
+
                         <i class="fa fa-plus" aria-hidden="true"></i> Mais
+
                     </a>
+
                 </li>
 
+
+
                 <li>
+
                     <a href="https://github.com/4rauj6">
+
                         <i class="fa fa-github"></i> Github
+
                     </a>
+
                 </li>
 
+
+
                 <li>
+
                     <a onclick="openUserProfile()" class="profile-icon">
+
                         <i class="fa fa-user"></i> Meu perfil
+
                     </a>
+
                 </li>
+
             </ul>
+
         </nav>
+
     </header>
+
+
+
 
 
     <section class="pomodoro-app" id="pomodoro-app">
 
         <div class="timer-container">
+
             <div class="timer-display">
+
                 <h2 id="timer-status"></h2>
-                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+
+                <span id="hours">00</span> <span>:</span>
+
+                
+
+                <span id="minutes">00</span> <span>:</span>
+
+                
+
+                <span id="seconds">00</span>
+
             </div>
+
+
 
             <div class="progress-container">
+
                 <div class="progress-fill" id="progress-fill"></div>
+
             </div><br>
 
+
+
             <div class="timer-setup" id="timer-setup">
-                <label for="user-time">Definir tempo de foco:</label>
+
+                <label for="user-time" id="task-time">Tempo total:</label>
+
                 
+
                 <div class="set-timer-container">
+
                     <input type="number" class="hours-focus" value="00" inputmode="numeric" required>
+
                     <input type="number" class="minutes-focus" value="10" inputmode="numeric" required>
+
                     <input type="number" class="seconds-focus" value="00" inputmode="numeric" required>
+
                 </div>
 
-                <label for="rest-time">Definir tempo de pausa:</label>
+
+
+                <label for="rest-time" id="task-rest-time">Tempo de descanso:</label>
+
                 
+
                 <div class="set-rest-container">
+
                     <input type="number" class="hours-rest"  value="00" inputmode="numeric" required>
+
                     <input type="number" class="minutes-rest" value="05" inputmode="numeric" required>
+
                     <input type="number" class="seconds-rest" value="00" inputmode="numeric" required>
+
                 </div>
-                
-                <label for="task-input">Definir uma tarefa:</label>
-                <input type="text" id="task-input">
+
+                <input type="text" id="task-input" placeholder="Digite uma tarefa">
+
             </div>
-            <div class="button-control-group" style="margin-top: 20px;">
+
+            <div class="button-control-group">
+
                 <button id="btn-start" class="start-app-button">
-                    Iniciar Tarefa <i class="fa fa-play"></i>
+
+                    Iniciar tarefa <i class="fa fa-play"></i>
+
                 </button>
+
+                
 
                 <button id="btn-pause" onclick="pauseTimer()" class="homepage-button" style="display: none;">
+
                     Pausar <i class="fa fa-pause"></i>
+
                 </button>
+
+
 
                 <button id="btn-reset" onclick="resetTimer()" class="homepage-button">
+
                     Resetar <i class="fa fa-refresh"></i>
+
                 </button>
+
             </div>
+
         </div>
+
     </section>
+
+
 
     <div id="ElementHided">
+
         <section id="know-about-pomodoro" class="know-more">
+
             <span class="section-sticker">Conhecendo melhor</span>
+
             <h1>O que é o método pomodoro?</h1>
 
+
+
             <div class="content1">
+
                 <p class="pomodoro-description">
+
                     O método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final
+
                     dos anos 1980. Seu objetivo principal é aumentar a produtividade e a concentração, dividindo o trabalho
+
                     em
+
                     intervalos curtos e intensos, intercalados com pequenas pausas. Ele funciona de forma simples e clara:
+
                     Escolher uma tarefa a ser realizada.
 
+
+
                     Definir um timer para 25 minutos, período chamado de “Pomodoro”, durante o qual você se dedica
+
                     exclusivamente à tarefa, sem distrações.
+
                     Trabalhar até o timer tocar. Se surgir alguma interrupção, anotá-la para resolver depois.
+
                     Fazer uma pausa curta de 5 minutos, relaxando a mente.
+
                     Repetir o ciclo. Após quatro Pomodoros consecutivos, faz-se uma pausa mais longa, geralmente de 15 a 30
+
                     minutos, para descansar profundamente.
 
+
+
                     Os principais benefícios do método Pomodoro incluem:
+
                     Maior foco e produtividade, pois promove atenção plena à tarefa.
+
                     Redução da procrastinação, ao dividir grandes tarefas em blocos menores.
+
                     Melhor gerenciamento de tempo, com consciência de quanto tempo se gasta em cada atividade.
+
                     Prevenção do cansaço mental, graças às pausas regulares.
+
                     Além disso, o método é altamente flexível: pode ser adaptado a diferentes durações de Pomodoro,
+
                     dependendo
+
                     do ritmo e da capacidade de concentração de cada pessoa.
+
                 </p>
+
             </div>
+
         </section>
+
+
 
         <section id="about" class="about">
+
             <p class="section-sticker-2">Sobre o projeto</p>
+
             <h1>Conhecendo o projeto a fundo</h1>
 
+
+
             <p class="about-project">
+
                 Esta aplicação é uma prova de conceito criada por João Victor Araújo de Sousa. O seu intuído é apenas (e
+
                 únicamente) o aprendizado e o treinamento das habilidades como desenvolvedor Front-End de seu autor. Com o
+
                 auxílio do Professor Eduardo do curso de Desenvolvimento de Sistemas do SENAI MA, este App-Web nãoo teria
+
                 sido desenvolvido e aperfeiçoado. Seu intuíto foi pensado para ser uma aplição de fácil entendimento,
+
                 manuntenção e funcionamento.
+
             </p>
+
         </section>
+
     </div>
 
+
+
     <section id="profile-page">
+
         <div class="profile-main-page">
 
+
+
         </div>
+
     </section>
+
+
 
     <section class="footer">
+
         <footer>
+
             <ul>
+
                 <li>
+
                     <a href="https://github.com/4rauj6">
+
                         <i class="fa fa-github"></i> Github
+
                     </a>
+
                 </li>
+
             </ul>
+
         </footer>
+
     </section>
+
 </body>
-
-
-
 </html>
