@@ -470,6 +470,8 @@ function resetTimer() {
 
   progressBarId.style.width = "100%";
 
+  progressBarId.style.backgroundColor = ""
+
   secondsDisplay.innerText = "00";
 
   timerSetupDiv.style.display = "flex";
