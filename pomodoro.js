@@ -1,214 +1,106 @@
 let timerInterval = null;
-
 let totalSeconds = 0;
-
 let initialFocoSeconds = 0;
-
 let initialStageSeconds = 0;
-
 let isPaused = false;
-
 let currentMode = "foco";
-
 let pontos = 0;
 
-
-
 const minutesDisplay = document.getElementById("minutes");
-
 const secondsDisplay = document.getElementById("seconds");
-
 const hoursDisplay = document.getElementById("hours");
-
 const timerStatus = document.getElementById("timer-status");
-
 const userTimeInput = document.getElementById("user-time");
-
 const timerSetupDiv = document.getElementById("timer-setup");
-
 const progressBarId = document.getElementById("progress-fill");
-
 const btnStart = document.getElementById("btn-start");
-
 const btnPause = document.getElementById("btn-pause");
-
 const btnReset = document.getElementById("btn-reset");
 
-
-
 btnStart.addEventListener("click", () => {
-
   const userTask = document.getElementById("task-input").value.trim();
 
-
-
   if (isPaused) {
-
     startCountdown();
-
     timerStatus.innerText = currentMode.includes("foco")
-
       ? `Tarefa atual: ${userTask}`
-
       : "Hora de relaxar";
-
     toggleButtons(true);
-
     isPaused = false;
-
   } else {
-
     initPomodoro();
-
   }
-
 });
 
-
-
 function progressBar() {
-
-  if (initialStageSeconds <= 0) return;
-
-
-
+  if (initialStageSeconds <= 0) return;  
   const progressOfTimer = (totalSeconds / initialStageSeconds) * 100;
-
   progressBarId.style.width = `${progressOfTimer}%`;
 
 }
 
-
-
 function initPomodoro() {
-
   if (timerInterval && isPaused) {
-
     isPaused = false;
-
     startCountdown();
-
     toggleButtons(true);
-
     return;
-
   }
-
-
 
   const getTaskString = document.getElementById("task-input").value.trim();
 
-
-
   if (!getTaskString) {
-
     alert("Por favor preencha todos os campos");
-
     return;
-
   }
-
-
-
+  
   const focusHours = Number(document.querySelector(".hours-focus").value);
-
   const focusMinutes = Number(document.querySelector(".minutes-focus").value);
-
   const focusSeconds = Number(document.querySelector(".seconds-focus").value);
-
-
-
   const getRestHours = Number(document.querySelector(".hours-rest").value);
-
   const getRestMinutes = Number(document.querySelector(".minutes-rest").value);
-
   const getRestSeconds = Number(document.querySelector(".seconds-rest").value);
 
-
-
   totalSeconds = focusHours * 3600 + focusMinutes * 60 + focusSeconds;
-
   initialStageSeconds = totalSeconds;
 
-
-
   const getRestValues =
-
     getRestHours * 3600 + getRestMinutes * 60 + getRestSeconds;
 
-
-
   if (totalSeconds <= 0) {
-
     Swal.fire({
-
       title: "Campos não preenchidos",
-
       titleColor: "red",
-
       icon: "warning",
-
       iconColor: "red",
-
       text: "Por favor defina um tempo válido ou maior",
-
       confirmButtonText: "OK",
-
       confirmButtonColor: "red",
-
       allowOutsideClick: false,
-
     });
-
     return;
-
   }
-
-
 
   ((restInputs = getRestHours), getRestMinutes, getRestSeconds);
 
-
-
   if (!getRestValues) {
-
     Swal.fire({
-
       title: "Campos não preenchidos",
-
       titleColor: "red",
-
       icon: "warning",
-
       iconColor: "red",
-
       text: "Por favor defina um tempo de descanso válido ou maior",
-
       confirmButtonText: "OK",
-
       confirmButtonColor: "red",
-
       allowOutsideClick: false,
-
     });
-
     return;
-
   }
 
-
-
   initialFocoSeconds = totalSeconds;
-
   currentMode = "foco";
-
-
-
   timerStatus.innerText = `Tarefa atual: ${getTaskString}`;
-
   timerSetupDiv.style.display = "none";
-
-
 
   toggleButtons(true);
 
@@ -218,34 +110,19 @@ function initPomodoro() {
 
 }
 
-
-
 function startCountdown() {
-
   clearInterval(timerInterval);
-
-
-
   timerInterval = setInterval(() => {
 
     if (totalSeconds > 0) {
-
       totalSeconds--;
-
       updateDisplay(totalSeconds);
-
       checkTimeTriggers();
-
     } else {
-
       clearInterval(timerInterval);
-
       handleTimerEnd();
-
     }
-
   }, 1000);
-
 }
 
 
